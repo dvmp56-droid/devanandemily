@@ -164,8 +164,8 @@
         <form id="rsvpForm" onsubmit="handleRsvp(event)">
           <div class="form-row"><div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName" required></div><div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName" required></div></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-          <div class="form-row"><div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required onchange="toggleMealFields()"><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div><div class="form-group"><label for="guests">Number of Guests</label><select id="guests" name="guests"><option value="1">1</option><option value="2">2</option></select></div></div>
-          <div id="mealFields" style="display:none;"><div class="form-group"><label for="meal">Meal Preference</label><select id="meal" name="meal"><option value="">Please select</option><option value="meat">Meat / Poultry</option><option value="fish">Fish / Seafood</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option></select></div><div class="form-group"><label for="dietary">Dietary Restrictions or Allergies</label><input type="text" id="dietary" name="dietary" placeholder="e.g. gluten-free, nut allergy"></div></div>
+          <div class="form-row"><div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div><div class="form-group"><label for="guests">Number of Guests</label><select id="guests" name="guests"><option value="1">1</option><option value="2">2</option></select></div></div>
+          <div class="form-group"><label for="dietary">Dietary Restrictions or Allergies (Optional)</label><input type="text" id="dietary" name="dietary" placeholder="e.g. gluten-free, nut allergy"></div>
           <div class="form-group"><label for="message">A Note for the Couple (Optional)</label><textarea id="message" name="message" rows="3"></textarea></div>
           <button type="submit" class="btn-submit">Send RSVP</button>
         </form>
@@ -258,7 +258,7 @@
         timestamp: new Date().toLocaleString()
       };
       /* REPLACE THIS URL with your Google Apps Script Web App URL */
-      var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwnQ8JphiwKgK5S6U1SC2vSgECjzYNOFVdvgPT6dVw37lLQ3JJKebGL8x4uF6NKduSi/exec";
+      var SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
       if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
         document.getElementById("rsvpFormContainer").querySelector("form").style.display="none";
         document.getElementById("formSuccess").style.display="block";
