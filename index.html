@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Devan &amp; Emily — September 12, 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --taupe: #b5a99a;
@@ -24,11 +24,20 @@
     nav .nav-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 2.5rem; padding: 1rem 2rem; }
     nav a { text-decoration: none; color: var(--medium); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; transition: color 0.3s; }
     nav a:hover { color: var(--terracotta); }
-    section { padding: 6rem 2rem; }
+    section { padding: 6rem 2rem; position: relative; overflow: hidden; }
     .container { max-width: 780px; margin: 0 auto; }
-    h1 { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 4.5rem; color: var(--dark); line-height: 1.1; }
-    h2 { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 2.8rem; color: var(--dark); text-align: center; margin-bottom: 1rem; }
-    .section-line { width: 50px; height: 1px; background: var(--terracotta); margin: 0 auto 3rem; }
+    h1 { font-family: "Playfair Display", serif; font-weight: 300; font-size: 4.5rem; color: var(--dark); line-height: 1.1; }
+    h2 { font-family: "Playfair Display", serif; font-weight: 300; font-size: 2.8rem; color: var(--dark); text-align: center; margin-bottom: 1rem; }
+    .section-line { width: 50px; height: 1px; background: var(--terracotta); margin: 0 auto 1rem; }
+    .floral-divider { text-align: center; margin-bottom: 2.5rem; font-size: 1.2rem; color: var(--taupe); opacity: 0.5; letter-spacing: 0.3em; }
+    .section-accent { position: relative; }
+    .section-accent::before, .section-accent::after { content: ""; position: absolute; left: 50%; transform: translateX(-50%); width: min(600px, 80%); height: 1px; background: linear-gradient(90deg, transparent, var(--soft), var(--taupe), var(--soft), transparent); }
+    .section-accent::before { top: 0; }
+    .section-accent::after { bottom: 0; }
+    .botanical-border { display: none; }
+    .dress-code { text-align: center; max-width: 550px; margin: 0 auto; }
+    .dress-code p { font-family: "Cormorant Garamond", serif; font-size: 1.15rem; font-style: italic; line-height: 1.8; color: var(--medium); }
+    .dress-code-label { font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 400; color: var(--terracotta); margin-bottom: 1rem; }
     p { margin-bottom: 1.2rem; color: var(--medium); }
     .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-top: 5rem; position: relative; background: url("hero.jpg") center/cover no-repeat scroll; }
     .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.40); z-index: 1; }
@@ -42,7 +51,7 @@
     .story { background: var(--cream); }
     .story-text { text-align: center; font-family: "Cormorant Garamond", serif; font-size: 1.25rem; font-style: italic; color: var(--medium); line-height: 1.9; }
     .schedule-grid { display: grid; gap: 0; }
-    .schedule-day-label { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; color: var(--terracotta); text-align: center; padding: 2rem 0 1rem; font-weight: 400; }
+    .schedule-day-label { font-family: "Playfair Display", serif; font-size: 1.6rem; color: var(--terracotta); text-align: center; padding: 2rem 0 1rem; font-weight: 400; }
     .schedule-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--soft); align-items: baseline; }
     .schedule-item:last-child { border-bottom: none; }
     .schedule-time { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--taupe); text-align: right; font-weight: 400; }
@@ -83,7 +92,7 @@
   </style>
 </head>
 <body>
-  <nav><div class="nav-inner"><a href="#story">Our Story</a><a href="#schedule">Schedule</a><a href="#rsvp">RSVP</a><a href="#accommodations">Stay</a><a href="#travel">Travel</a><a href="#registry">Registry</a></div></nav>
+  <nav><div class="nav-inner"><a href="#story">Our Story</a><a href="#schedule">Schedule</a><a href="#dresscode">Attire</a><a href="#rsvp">RSVP</a><a href="#accommodations">Stay</a><a href="#travel">Travel</a></div></nav>
 
   <section class="hero" id="home">
     <div class="hero-date">September 12, 2026</div>
@@ -92,11 +101,13 @@
     <div class="scroll-hint">Scroll to explore</div>
   </section>
 
-  <section class="story" id="story">
+
+  <section class="story section-accent" id="story">
+
     <div class="container">
       <h2>Our Story</h2>
       <div class="section-line"></div>
-      <p class="story-text">What began as a high school love story has grown into something we never could have imagined back then. We've built a life together, and now we're ready to make it official surrounded by the people who've been part of our journey all along.<br><br>Join us in the Okanagan as we say &quot;I do&quot;.</p>
+      <p class="story-text">Fourteen years ago, we were just two kids who had no idea what was ahead. A lot has changed since then — but not us. We've grown up together, and now it's time to make it official.<br><br>We'd love nothing more than to celebrate with the people who've meant the most to us along the way.</p>
     </div>
   </section>
 
@@ -111,61 +122,69 @@
               <div class="schedule-time">2:00 PM</div>
               <div>
                 <div class="schedule-event">Wedding Ceremony</div>
-                <div class="schedule-detail">Sanctuary Gardens, 1992 Carroll Rd, Kelowna</div>
+                <div class="schedule-detail"><a href="https://maps.google.com/?q=Sanctuary+Gardens+1992+Carroll+Rd+Kelowna+BC" target="_blank" style="color:var(--taupe);text-decoration:underline;">Sanctuary Gardens, 1992 Carroll Rd, Kelowna</a></div>
               </div>
             </div>
             <div class="schedule-item">
-              <div class="schedule-time">3:00 - 5:00 PM</div>
+              <div class="schedule-time">2:30 - 3:30 PM</div>
               <div>
                 <div class="schedule-event">Gardens &amp; Photos</div>
-                <div class="schedule-detail">Photos, drinks, and time to enjoy the beautiful grounds</div>
+                <div class="schedule-detail">Couples, wedding party &amp; family photos in the gardens — please stay close!</div>
               </div>
             </div>
-            <div class="schedule-day-label">Dinner</div>
+            <div class="schedule-item">
+              <div class="schedule-time">3:30 - 5:30 PM</div>
+              <div>
+                <div class="schedule-event">Free Time</div>
+                <div class="schedule-detail">Stroll the Kelowna waterfront boardwalk, grab a drink on a nearby patio along Water Street, or check into your hotel and freshen up before dinner</div>
+              </div>
+            </div>
+            <div class="schedule-day-label">Reception</div>
             <div class="schedule-item">
               <div class="schedule-time">5:30 PM</div>
               <div>
                 <div class="schedule-event">Guests Arrive &amp; Welcome Drinks</div>
-                <div class="schedule-detail">Cactus Club Cafe - Kelowna Yacht Club, 1370 Water St</div>
+                <div class="schedule-detail"><a href="https://maps.google.com/?q=Cactus+Club+Cafe+Kelowna+Yacht+Club+1370+Water+St+Kelowna+BC" target="_blank" style="color:var(--taupe);text-decoration:underline;">Cactus Club Cafe - Kelowna Yacht Club, 1370 Water St</a></div>
               </div>
             </div>
             <div class="schedule-item">
               <div class="schedule-time">6:30 PM</div>
               <div>
                 <div class="schedule-event">Dinner</div>
-                <div class="schedule-detail">Lakeside Dining Room - Prix fixe Menu</div>
-              </div>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-time">8:00 PM</div>
-              <div>
-                <div class="schedule-event">Dessert &amp; Celebration</div>
-              </div>
-            </div>
-            <div class="schedule-day-label">After Party</div>
-            <div class="schedule-item">
-              <div class="schedule-time">9:00 PM</div>
-              <div>
-                <div class="schedule-event">Drinks &amp; Celebration</div>
-                <div class="schedule-detail">Join us at the Grandview Mansion for coffee, tea, drinks, and good company</div>
+                <div class="schedule-detail">Appetizers, Mains &amp; Dessert - Lakeside Dining Room</div>
               </div>
             </div>
 
       </div>
+      <p style="text-align:center;margin-top:2.5rem;font-size:0.85rem;font-style:italic;color:#b5a99a;">Additional details to come as the day approaches.</p>
     </div>
   </section>
 
-  <section class="rsvp" id="rsvp">
+  <section class="story section-accent" id="dresscode">
+    <div class="container">
+      <h2>Dress Code</h2>
+      <div class="section-line"></div>
+      <div class="dress-code">
+        <div class="dress-code-label">Garden Formal</div>
+        <p>Sundresses, cocktail dresses, dress shirts with slacks, or a sport coat if you'd like. Leave the suit and tie at home — just come ready to celebrate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp section-accent" id="rsvp">
     <div class="container">
       <h2>RSVP</h2>
       <div class="section-line"></div>
-      <p class="rsvp-note">Please respond by <strong>August 15, 2026</strong></p>
+      <p class="rsvp-note">Please respond by <strong>July 31, 2026</strong></p>
       <div class="rsvp-form" id="rsvpFormContainer">
         <form id="rsvpForm" onsubmit="handleRsvp(event)">
           <div class="form-row"><div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName" required></div><div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName" required></div></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-          <div class="form-row"><div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div><div class="form-group"><label for="guests">Number of Guests</label><select id="guests" name="guests"><option value="1">1</option><option value="2">2</option></select></div></div>
-          <div class="form-group"><label for="dietary">Dietary Restrictions or Allergies (Optional)</label><input type="text" id="dietary" name="dietary" placeholder="e.g. gluten-free, nut allergy"></div>
+          <div class="form-row"><div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required onchange="toggleChildrenFields()"><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div><div class="form-group"><label for="guests">Number of Guests</label><select id="guests" name="guests"><option value="1">1</option><option value="2">2</option></select></div></div>
+          <div id="childrenFields" style="display:none;">
+          <p style="margin-top:0.5rem;font-size:0.82rem;font-style:italic;color:#b5a99a;text-align:center;">Little ones are welcome if they can sit on a parent's lap — unfortunately we're unable to accommodate extra seating for children. Just let us know how many to expect below!</p>
+          <div class="form-group"><label for="children">Number of Children</label><select id="children" name="children"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></div>
+          </div>
           <div class="form-group"><label for="message">A Note for the Couple (Optional)</label><textarea id="message" name="message" rows="3"></textarea></div>
           <button type="submit" class="btn-submit">Send RSVP</button>
         </form>
@@ -209,15 +228,15 @@
     </div>
   </section>
 
-  <section class="travel" id="travel">
+  <section class="travel section-accent" id="travel">
     <div class="container">
       <h2>Getting There</h2>
       <div class="section-line"></div>
       <div class="travel-grid">
         <div class="travel-block"><h4>By Air</h4><p>Fly into Kelowna International Airport (YLW), which receives direct flights from Vancouver and Calgary. The airport is about 20-30 minutes from downtown Kelowna and the reception venue.</p></div>
         <div class="travel-block"><h4>By Car</h4><p>From Vancouver: ~4 hours via the Coquihalla Highway (Hwy 5) to Hwy 97C. A beautiful drive through the mountains.<br><br>From Calgary: ~6 hours via the Trans-Canada (Hwy 1) through the Rockies.</p></div>
-        <div class="travel-block"><h4>Ceremony Venue</h4><p><strong>Sanctuary Gardens</strong><br>1992 Carroll Rd, Kelowna, BC<br><em>Saturday, September 12 - 2:00 PM</em></p></div>
-        <div class="travel-block"><h4>Reception Venue</h4><p><strong>Cactus Club Cafe - Kelowna Yacht Club</strong><br>1370 Water Street, Kelowna, BC V1Y 1J1<br><em>Lakeside Dining Room - right on the waterfront</em></p></div>
+        <div class="travel-block"><h4>Ceremony Venue</h4><p><strong>Sanctuary Gardens</strong><br><a href="https://maps.google.com/?q=Sanctuary+Gardens+1992+Carroll+Rd+Kelowna+BC" target="_blank" style="color:var(--medium);text-decoration:underline;">1992 Carroll Rd, Kelowna, BC</a><br><em>Saturday, September 12 - 2:00 PM</em></p></div>
+        <div class="travel-block"><h4>Reception Venue</h4><p><strong>Cactus Club Cafe - Kelowna Yacht Club</strong><br><a href="https://maps.google.com/?q=Cactus+Club+Cafe+Kelowna+Yacht+Club+1370+Water+St+Kelowna+BC" target="_blank" style="color:var(--medium);text-decoration:underline;">1370 Water Street, Kelowna, BC V1Y 1J1</a><br><em>Lakeside Dining Room - right on the waterfront</em></p></div>
       </div>
     </div>
   </section>
@@ -228,7 +247,6 @@
       <div class="section-line"></div>
       <div class="registry-text">
         <p>Your presence at our wedding is the greatest gift of all. For those who wish to honour us with a gift, we would be grateful for a contribution toward our honeymoon fund.</p>
-        <p style="margin-top:1.5rem;font-style:normal;font-family:Montserrat,sans-serif;font-size:0.85rem;color:#b5a99a;">Registry details coming soon.</p>
       </div>
     </div>
   </section>
@@ -236,10 +254,11 @@
   <footer>
     <div class="footer-names">D &amp; E</div>
     <p>September 12, 2026 · Kelowna, BC</p>
+    <p style="margin-top:1.5rem;font-size:0.75rem;letter-spacing:0.1em;color:#b5a99a;">Questions? Reach out to us anytime</p>
   </footer>
 
   <script>
-    function toggleMealFields(){document.getElementById("mealFields").style.display=document.getElementById("attending").value==="yes"?"block":"none";}
+    function toggleChildrenFields(){document.getElementById("childrenFields").style.display=document.getElementById("attending").value==="yes"?"block":"none";}
     function handleRsvp(e){
       e.preventDefault();
       var form = document.getElementById("rsvpForm");
@@ -252,8 +271,7 @@
         email: form.email.value,
         attending: form.attending.value,
         guests: form.guests.value,
-        meal: form.meal ? form.meal.value : "",
-        dietary: form.dietary ? form.dietary.value : "",
+        children: form.children.value,
         message: form.message.value,
         timestamp: new Date().toLocaleString()
       };
