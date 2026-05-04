@@ -172,13 +172,15 @@
       <h2>RSVP</h2>
       <div class="section-line"></div>
       <p class="rsvp-note">Please respond by <strong>July 31, 2026</strong></p>
-      <p style="text-align:center;font-size:0.82rem;font-style:italic;color:#b5a99a;margin-bottom:2rem;">Please fill out one form for each guest named on your invitation.</p>
+      <div style="max-width:420px;margin:0 auto 2rem;">
+        <p style="text-align:center;font-size:0.82rem;font-style:italic;color:#b5a99a;margin-bottom:0.5rem;">Please fill out one form for each guest named on your invitation.</p>
+        <p style="text-align:center;font-size:0.82rem;font-style:italic;color:#b5a99a;">Due to venue limitations, we're unable to accommodate extra seating for your little ones. If childcare may be an issue, please reach out to us.</p>
+      </div>
       <div class="rsvp-form" id="rsvpFormContainer">
         <form id="rsvpForm" onsubmit="handleRsvp(event)">
           <div class="form-row"><div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName" required></div><div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName" required></div></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-          <div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required onchange="toggleChildrenFields()"><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div>
-          <p id="childrenNote" style="display:none;margin-top:0.5rem;font-size:0.82rem;font-style:italic;color:#b5a99a;text-align:center;">Unfortunately due to venue limitations, we're unable to accommodate extra seating for your little ones. If childcare may be an issue, please reach out to us.</p>
+          <div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div>
           <div class="form-group"><label for="message">A Note for the Couple (Optional)</label><textarea id="message" name="message" rows="3"></textarea></div>
           <button type="submit" class="btn-submit">Send RSVP</button>
         </form>
@@ -252,7 +254,6 @@
   </footer>
 
   <script>
-    function toggleChildrenFields(){document.getElementById("childrenNote").style.display=document.getElementById("attending").value==="yes"?"block":"none";}
     function handleRsvp(e){
       e.preventDefault();
       var form = document.getElementById("rsvpForm");
