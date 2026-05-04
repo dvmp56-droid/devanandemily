@@ -172,15 +172,13 @@
       <h2>RSVP</h2>
       <div class="section-line"></div>
       <p class="rsvp-note">Please respond by <strong>July 31, 2026</strong></p>
+      <p style="text-align:center;font-size:0.82rem;font-style:italic;color:#b5a99a;margin-bottom:2rem;">Please fill out one form for each guest named on your invitation.</p>
       <div class="rsvp-form" id="rsvpFormContainer">
         <form id="rsvpForm" onsubmit="handleRsvp(event)">
           <div class="form-row"><div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName" required></div><div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName" required></div></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-          <div class="form-row"><div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required onchange="toggleChildrenFields()"><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div><div class="form-group"><label for="guests">Number of Guests</label><select id="guests" name="guests"><option value="1">1</option><option value="2">2</option></select></div></div>
-          <div id="childrenFields" style="display:none;">
-          <p style="margin-top:0.5rem;font-size:0.82rem;font-style:italic;color:#b5a99a;text-align:center;">Little ones are welcome if they can sit on a parent's lap — unfortunately we're unable to accommodate extra seating for children. Just let us know how many to expect below!</p>
-          <div class="form-group"><label for="children">Number of Children</label><select id="children" name="children"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></div>
-          </div>
+          <div class="form-group"><label for="attending">Will You Be Joining Us?</label><select id="attending" name="attending" required onchange="toggleChildrenFields()"><option value="">Please select</option><option value="yes">Joyfully Accepts</option><option value="no">Regretfully Declines</option></select></div>
+          <p id="childrenNote" style="display:none;margin-top:0.5rem;font-size:0.82rem;font-style:italic;color:#b5a99a;text-align:center;">Unfortunately due to venue limitations, we're unable to accommodate extra seating for your little ones. If childcare may be an issue, please reach out to us.</p>
           <div class="form-group"><label for="message">A Note for the Couple (Optional)</label><textarea id="message" name="message" rows="3"></textarea></div>
           <button type="submit" class="btn-submit">Send RSVP</button>
         </form>
@@ -254,7 +252,7 @@
   </footer>
 
   <script>
-    function toggleChildrenFields(){document.getElementById("childrenFields").style.display=document.getElementById("attending").value==="yes"?"block":"none";}
+    function toggleChildrenFields(){document.getElementById("childrenNote").style.display=document.getElementById("attending").value==="yes"?"block":"none";}
     function handleRsvp(e){
       e.preventDefault();
       var form = document.getElementById("rsvpForm");
@@ -266,12 +264,10 @@
         lastName: form.lastName.value,
         email: form.email.value,
         attending: form.attending.value,
-        guests: form.guests.value,
-        children: form.children ? form.children.value : "0",
         message: form.message.value,
         timestamp: new Date().toLocaleString()
       };
-      var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzUaR9TgsglGuBxEWYIM98Rxeknn7sH6xxz9X_YjoratzK22TXcNG1IX32cBPnsAdFL/exec";
+      var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwnQ8JphiwKgK5S6U1SC2vSgECjzYNOFVdvgPT6dVw37lLQ3JJKebGL8x4uF6NKduSi/exec";
       if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
         document.getElementById("rsvpFormContainer").querySelector("form").style.display="none";
         document.getElementById("formSuccess").style.display="block";
