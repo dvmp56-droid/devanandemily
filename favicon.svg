@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Left ring -->
+  <circle cx="24" cy="32" r="14" fill="none" stroke="#c4856a" stroke-width="4"/>
+  <circle cx="24" cy="32" r="14" fill="none" stroke="#d4a088" stroke-width="1.5" opacity="0.5"/>
+  <!-- Right ring (interlocked) -->
+  <circle cx="40" cy="32" r="14" fill="none" stroke="#b5a99a" stroke-width="4"/>
+  <circle cx="40" cy="32" r="14" fill="none" stroke="#c8bdb0" stroke-width="1.5" opacity="0.5"/>
+  <!-- Interlock effect: redraw the overlap sections -->
+  <!-- Right ring passes behind left ring on top -->
+  <clipPath id="topClip">
+    <rect x="28" y="18" width="16" height="14"/>
+  </clipPath>
+  <circle cx="24" cy="32" r="14" fill="none" stroke="#c4856a" stroke-width="4" clip-path="url(#topClip)"/>
+  <!-- Left ring passes behind right ring on bottom -->
+  <clipPath id="bottomClip">
+    <rect x="20" y="32" width="16" height="14"/>
+  </clipPath>
+  <circle cx="40" cy="32" r="14" fill="none" stroke="#b5a99a" stroke-width="4" clip-path="url(#bottomClip)"/>
+</svg>
